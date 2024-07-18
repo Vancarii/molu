@@ -16,8 +16,6 @@ struct ContentView: View {
                 }
                 OverView().tabItem { Image(systemName: "house")
                 }
-    //            AccountView().tabItem { Image(systemName: "person.circle")
-    //            }
             }
         }
     }

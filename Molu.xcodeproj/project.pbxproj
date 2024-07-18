@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C168ED842C477BF5000695D7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED832C477BF5000695D7 /* AccountView.swift */; };
+		C168ED842C477BF5000695D7 /* DealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED832C477BF5000695D7 /* DealView.swift */; };
 		C168ED862C477C83000695D7 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED852C477C83000695D7 /* MessagesView.swift */; };
 		C168ED882C478503000695D7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED872C478503000695D7 /* ChatView.swift */; };
 		C168ED8A2C4869C4000695D7 /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED892C4869C4000695D7 /* OverView.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C168ED832C477BF5000695D7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		C168ED832C477BF5000695D7 /* DealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealView.swift; sourceTree = "<group>"; };
 		C168ED852C477C83000695D7 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C168ED872C478503000695D7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C168ED892C4869C4000695D7 /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				C168ED852C477C83000695D7 /* MessagesView.swift */,
 				C168ED872C478503000695D7 /* ChatView.swift */,
 				C168ED892C4869C4000695D7 /* OverView.swift */,
-				C168ED832C477BF5000695D7 /* AccountView.swift */,
+				C168ED832C477BF5000695D7 /* DealView.swift */,
 				C1B33D632C4745FE0082BE72 /* Assets.xcassets */,
 				C1B33D652C4745FE0082BE72 /* Preview Content */,
 			);
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C168ED862C477C83000695D7 /* MessagesView.swift in Sources */,
-				C168ED842C477BF5000695D7 /* AccountView.swift in Sources */,
+				C168ED842C477BF5000695D7 /* DealView.swift in Sources */,
 				C1B33D622C4745FE0082BE72 /* ContentView.swift in Sources */,
 				C168ED882C478503000695D7 /* ChatView.swift in Sources */,
 				C168ED8A2C4869C4000695D7 /* OverView.swift in Sources */,

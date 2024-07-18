@@ -8,7 +8,24 @@
 import Foundation
 import SwiftUI
 
+struct Deal: Identifiable {
+    let id = UUID()
+    let username: String
+    let remaining: String
+    let paid: String
+    let total: String
+}
+
+
 struct OverView: View {
+    
+    let deals: [Deal] = [
+        Deal(username: "Alice", remaining: "$5,000.00", paid: "$25,000.00", total: "$30,000.00"),
+        Deal(username: "John", remaining: "$1,000.00", paid: "$500.00", total: "$1,500.00"),
+        Deal(username: "Grant", remaining: "$50.00", paid: "$100.00", total: "$150.00"),
+    ]
+
+    
     var body: some View {
         
 //        NavigationView {
@@ -43,64 +60,44 @@ struct OverView: View {
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            NavigationLink(destination: AccountView()){
-                                VStack(alignment: .leading) {
-                                    Text("You owe\n[username]")
-                                        .font(.headline)
-                                        .foregroundColor(.gray)
-                                    Text("$5,000.00")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .padding([.top, .bottom, .trailing], 2.0)
-                                        .foregroundColor(.black)
-                                    Text("$25,000.00 / $30,000.00")
-                                        .font(.subheadline)
-                                        .foregroundColor(.red)
-                                    HStack{
-                                        Label("Details", systemImage: "arrow.right.circle").foregroundColor(.gray)
+                            ForEach(deals) { deal in
+                                NavigationLink(destination: DealView(deal: deal)){
+                                    VStack(alignment: .leading) {
+                                        Text("You owe")
+                                            .font(.headline)
+                                            .foregroundColor(.gray)
+                                        Text(deal.username)
+                                            .font(.headline)
+                                            .foregroundColor(.gray)
+                                        Text(deal.remaining)
+                                            .font(.largeTitle)
+                                            .fontWeight(.bold)
+                                            .padding([.top, .bottom, .trailing], 2.0)
+                                            .foregroundColor(.black)
+                                        Text("\(deal.paid) / \(deal.total)")
+                                            .font(.subheadline)
+                                            .foregroundColor(.red)
+                                        HStack{
+                                            Label("Details", systemImage: "arrow.right.circle").foregroundColor(.gray)
+                                        }
+                                        .environment(\.layoutDirection, .rightToLeft)
+                                        .padding(.all, 5.0)
                                     }
-                                    .environment(\.layoutDirection, .rightToLeft)
-                                    .padding(.all, 5.0)
+                                    .padding()
+                                    .background(Color(UIColor.systemGray6))
+                                    .cornerRadius(10)
+                                    .padding([.leading, .trailing], 5.0)
+                                    .padding([.bottom], 10.0)
+                                    .shadow(radius: 5,
+                                            x: 5,
+                                            y: 5
+                                    )
                                 }
-                                .padding()
-                                .background(Color(UIColor.systemGray6))
-                                .cornerRadius(10)
-                                .padding([.leading, .bottom], 15.0)
-                                .shadow(radius: 5,
-                                        x: 5,
-                                        y: 5
-                                )
                             }
                             
-                            NavigationLink(destination: AccountView()) {
-                                VStack(alignment: .leading) {
-                                    Text("[username]\nowes you")
-                                        .font(.headline)
-                                        .foregroundColor(.gray)
-                                    Text("$2,000.00")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .padding([.top, .bottom, .trailing], 2.0)
-                                        .foregroundColor(.black)
-                                    Text("$5,000.00 / $7,000.00")
-                                        .font(.subheadline)
-                                        .foregroundColor(.green)
-                                    HStack{
-                                        Label("Details", systemImage: "arrow.right.circle").foregroundColor(.gray)
-                                    }
-                                    .environment(\.layoutDirection, .rightToLeft)
-                                    .padding(.all, 5.0)
-                                }
-                                .padding()
-                                .background(Color(UIColor.systemGray6))
-                                .cornerRadius(10)
-                                .padding([.leading, .bottom], 15.0)
-                                .shadow(radius: 5,
-                                        x: 5,
-                                        y: 5
-                            )
-                            }
+                            
                         }
+                        .padding(.horizontal)
                     }
                     
                     // Buttons

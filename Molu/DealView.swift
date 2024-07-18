@@ -8,24 +8,23 @@
 import Foundation
 import SwiftUI
 
-struct AccountView: View {
+struct DealView: View {
+    let deal: Deal
+
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 // Header
-                HStack {
-                    Text("Account Overview")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Spacer()
-                    Button(action: {
-                        // Profile action
-                    }) {
-                        Image(systemName: "person.circle")
-                            .font(.largeTitle)
-                    }
-                }
-                .padding()
+                
+                Text("Deal Details")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding([.top, .leading])
+                
+                Text("You are buying a [product]").font(.headline)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
                 
                 // Financial Overview
                 VStack(alignment: .leading) {
@@ -33,21 +32,33 @@ struct AccountView: View {
                         .font(.headline)
                         .padding(.bottom, 8)
                     
+                    VStack(alignment: .leading) {
+                        Text("Amount Left")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        Text(deal.remaining)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.red)
+                    }
+                    
+                    Spacer()
+                    
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Debt Owed")
+                            Text("Product Cost")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
-                            Text("$5,000.00")
+                            Text(deal.total)
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
                         Spacer()
                         VStack(alignment: .leading) {
-                            Text("Earnings")
+                            Text("Paid")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
-                            Text("$15,000.00")
+                            Text(deal.paid)
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
@@ -131,5 +142,5 @@ struct AccountView: View {
 
 
 #Preview {
-    AccountView()
+    DealView(deal: Deal(username: "Alice", remaining: "$100.00", paid: "$50.00", total: "$150.00"))
 }
