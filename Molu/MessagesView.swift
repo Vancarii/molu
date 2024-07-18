@@ -14,7 +14,7 @@ struct Message: Identifiable {
     let preview: String
     let timestamp: String
     let fullMessage: String // Add a full message for detailed view
-
+    
 }
 
 struct MessagesView: View {
@@ -26,27 +26,26 @@ struct MessagesView: View {
         Message(sender: "Eve", preview: "Please review the attached document.", timestamp: "3d ago", fullMessage: "Please review the attached document and provide your feedback by the end of the week.")
     ]
     var body: some View {
-        NavigationView { // Wrap in NavigationView
-                    List(messages) { message in
-                        NavigationLink(destination: ChatView(message: message)) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(message.sender)
-                                        .font(.headline)
-                                    Text(message.preview)
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
-                                Spacer()
-                                Text(message.timestamp)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.vertical, 8)
-                        }
+        List(messages) { message in
+            NavigationLink(destination: ChatView(message: message)) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(message.sender)
+                            .font(.headline)
+                        Text(message.preview)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
-                    .navigationBarTitle("Messages", displayMode: .inline)
+                    Spacer()
+                    Text(message.timestamp)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                 }
+                .padding(.vertical, 8)
+            }
+        }
+        .navigationBarTitle("Messages", displayMode: .inline)
+        
     }
 }
 

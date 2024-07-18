@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView{
-            MessagesView().tabItem { Image(systemName: "paperplane") }
-            HomeView().tabItem { Image(systemName: "house")
-            }
-            AccountView().tabItem { Image(systemName: "person.circle")
+        
+        NavigationView {
+            TabView{
+                MessagesView().tabItem { Image(systemName: "paperplane")
+                }
+                OverView().tabItem { Image(systemName: "house")
+                }
+    //            AccountView().tabItem { Image(systemName: "person.circle")
+    //            }
             }
         }
     }
