@@ -16,6 +16,12 @@ struct Deal: Identifiable {
     let total: String
 }
 
+extension AnyTransition {
+    static var moveUp: AnyTransition {
+        AnyTransition.move(edge: .bottom)
+    }
+}
+
 
 struct OverView: View {
     
@@ -24,11 +30,13 @@ struct OverView: View {
         Deal(username: "John", remaining: "$1,000.00", paid: "$500.00", total: "$1,500.00"),
         Deal(username: "Grant", remaining: "$50.00", paid: "$100.00", total: "$150.00"),
     ]
-
+    
+    @State private var showNewDealSheet = false
+    
     
     var body: some View {
         
-//        NavigationView {
+//        ZStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     // Header
@@ -57,7 +65,7 @@ struct OverView: View {
                         .font(.headline).padding(.horizontal)
                     
                     // Cards
-
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(deals) { deal in
@@ -102,8 +110,11 @@ struct OverView: View {
                     
                     // Buttons
                     HStack {
+                        
                         Button(action: {
-                            // Analytics action
+                            
+                            showNewDealSheet.toggle()
+                            
                         }) {
                             VStack {
                                 Image(systemName: "plus.app.fill")
@@ -115,7 +126,14 @@ struct OverView: View {
                             .padding()
                             .background(Color(UIColor.systemGray6))
                             .cornerRadius(10)
+                        }.sheet(isPresented: $showNewDealSheet) {
+//                            print("Sheet dismissed!")
+                        } content: {
+                            NewDealView(showNewDealPage: $showNewDealSheet).interactiveDismissDisabled()
                         }
+
+                        
+                        
                         
                         Button(action: {
                             // Withdraw action
@@ -150,17 +168,17 @@ struct OverView: View {
                     .padding(.horizontal)
                     .padding(.top, 8)
                     
-                    // Invite Section
-                    VStack(alignment: .leading) {
-                        Text("Invite a friend and you can both get $10 in BTC")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
-                    }
-                    .padding()
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .padding(.top, 8)
+                    //                    // Invite Section
+                    //                    VStack(alignment: .leading) {
+                    //                        Text("Invite a friend and you can both get $10 in BTC")
+                    //                            .font(.subheadline)
+                    //                            .foregroundColor(.black)
+                    //                    }
+                    //                    .padding()
+                    //                    .background(Color(UIColor.systemGray6))
+                    //                    .cornerRadius(10)
+                    //                    .padding(.horizontal)
+                    //                    .padding(.top, 8)
                     
                     // Market Section
                     VStack(alignment: .leading) {
@@ -177,11 +195,12 @@ struct OverView: View {
                         // Market List Placeholder
                         VStack {
                             HStack {
-                                Text("Bitcoin")
+                                Text("Paid")
                                     .font(.headline)
                                 Spacer()
-                                Text("$32,811.00")
+                                Text("$185.00")
                                     .font(.subheadline)
+                                    .foregroundColor(.red)
                             }
                             .padding(.horizontal)
                             .padding(.vertical, 8)
@@ -189,11 +208,12 @@ struct OverView: View {
                             .cornerRadius(10)
                             
                             HStack {
-                                Text("Ethereum")
+                                Text("Received")
                                     .font(.headline)
                                 Spacer()
-                                Text("$2,489.10")
+                                Text("$200.00")
                                     .font(.subheadline)
+                                    .foregroundColor(.green)
                             }
                             .padding(.horizontal)
                             .padding(.vertical, 8)
@@ -201,11 +221,12 @@ struct OverView: View {
                             .cornerRadius(10)
                             
                             HStack {
-                                Text("Tether")
+                                Text("Received")
                                     .font(.headline)
                                 Spacer()
-                                Text("$1.00")
+                                Text("$150.00")
                                     .font(.subheadline)
+                                    .foregroundColor(.green)
                             }
                             .padding(.horizontal)
                             .padding(.vertical, 8)
@@ -219,10 +240,151 @@ struct OverView: View {
                 .padding(.top)
             }
             .background(Color(UIColor.systemGray5))
+            
+            
+//            if showNewDealPage {
+//                NewDealView(showNewDealPage: $showNewDealPage)
+//                    .transition(.moveUp)
+//                    .zIndex(1) // Ensures that the DetailView is on top
+//            }
+        
+        
 //        }
         
     }
 }
+
+struct NewDealView: View {
+    @Binding var showNewDealPage: Bool
+    @State private var username: String = ""
+    @State private var productName: String = ""
+    @State private var productPrice: String = ""
+    @State private var downPayment: String = ""
+    @State private var selectedImage: Image? = nil
+    @State private var isImagePickerPresented: Bool = false
+
+    var body: some View {
+        VStack() {
+            
+            HStack {
+                Button("Cancel") {
+                    // cancel and dont save
+                        showNewDealPage.toggle()
+                    
+                }
+                .padding()
+                Spacer()
+                Button("Save") {
+                    // save the data as draft then dismiss
+                        showNewDealPage.toggle()
+                    
+                }
+                .padding()
+            }
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Create a deal")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    Text("Add details to your listing for the buyer to verify")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                
+                Spacer()
+            }.padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            
+            Divider()
+            
+            
+            HStack {
+                Text("Add images of your product")
+                    .font(.caption)
+                .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding([.top, .leading])
+            
+                Button(action: {
+                    isImagePickerPresented.toggle()
+                }) {
+                    if let selectedImage = selectedImage {
+                        selectedImage
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                    } else {
+                        Image(systemName: "photo.stack")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.gray)
+                    }
+                }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            .padding()
+            
+            
+            HStack {
+                Text("\(Text("*").foregroundColor(Color(.red)))Required: The name of your product")
+                    .font(.caption)
+                .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding(/*@START_MENU_TOKEN@*/[.top, .leading]/*@END_MENU_TOKEN@*/)
+            
+                
+            TextField("Product Name", text: $productName)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(8)
+                .padding(.horizontal)
+
+            HStack {
+                Text("\(Text("*").foregroundColor(Color(.red)))Required: The amount you have listed the product for")
+                    .font(.caption)
+                .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding(/*@START_MENU_TOKEN@*/[.top, .leading]/*@END_MENU_TOKEN@*/)
+            
+            TextField("Product Price", text: $productPrice)
+                .keyboardType(.decimalPad)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(8)
+                .padding(.horizontal)
+            
+            HStack {
+                Text("The amount you require for down payment ($0 if empty)")
+                    .font(.caption)
+                .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding(/*@START_MENU_TOKEN@*/[.top, .leading]/*@END_MENU_TOKEN@*/)
+            
+            TextField("Down Payment", text: $downPayment)
+                .keyboardType(.decimalPad)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(8)
+                .padding(.horizontal)
+
+
+        }
+        .frame(maxWidth: .infinity, maxHeight: .nan)
+        
+        .edgesIgnoringSafeArea(.all)
+        
+        .sheet(isPresented: $isImagePickerPresented) {
+            ImagePicker(image: $selectedImage)
+        }
+    }
+}
+
 
 #Preview {
     OverView()

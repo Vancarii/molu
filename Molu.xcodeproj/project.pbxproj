@@ -11,6 +11,8 @@
 		C168ED862C477C83000695D7 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED852C477C83000695D7 /* MessagesView.swift */; };
 		C168ED882C478503000695D7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED872C478503000695D7 /* ChatView.swift */; };
 		C168ED8A2C4869C4000695D7 /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED892C4869C4000695D7 /* OverView.swift */; };
+		C168ED8C2C498EE6000695D7 /* NewDealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED8B2C498EE6000695D7 /* NewDealView.swift */; };
+		C168ED8E2C49921A000695D7 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED8D2C49921A000695D7 /* ImagePickerView.swift */; };
 		C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */; };
 		C1B33D622C4745FE0082BE72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B33D612C4745FE0082BE72 /* ContentView.swift */; };
 		C1B33D642C4745FE0082BE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B33D632C4745FE0082BE72 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		C168ED852C477C83000695D7 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C168ED872C478503000695D7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C168ED892C4869C4000695D7 /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
+		C168ED8B2C498EE6000695D7 /* NewDealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDealView.swift; sourceTree = "<group>"; };
+		C168ED8D2C49921A000695D7 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		C1B33D5C2C4745FE0082BE72 /* Molu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoluApp.swift; sourceTree = "<group>"; };
 		C1B33D612C4745FE0082BE72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 				C168ED872C478503000695D7 /* ChatView.swift */,
 				C168ED892C4869C4000695D7 /* OverView.swift */,
 				C168ED832C477BF5000695D7 /* DealView.swift */,
+				C168ED8B2C498EE6000695D7 /* NewDealView.swift */,
+				C168ED8D2C49921A000695D7 /* ImagePickerView.swift */,
 				C1B33D632C4745FE0082BE72 /* Assets.xcassets */,
 				C1B33D652C4745FE0082BE72 /* Preview Content */,
 			);
@@ -150,8 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C168ED862C477C83000695D7 /* MessagesView.swift in Sources */,
+				C168ED8C2C498EE6000695D7 /* NewDealView.swift in Sources */,
 				C168ED842C477BF5000695D7 /* DealView.swift in Sources */,
 				C1B33D622C4745FE0082BE72 /* ContentView.swift in Sources */,
+				C168ED8E2C49921A000695D7 /* ImagePickerView.swift in Sources */,
 				C168ED882C478503000695D7 /* ChatView.swift in Sources */,
 				C168ED8A2C4869C4000695D7 /* OverView.swift in Sources */,
 				C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */,
