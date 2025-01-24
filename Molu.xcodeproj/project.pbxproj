@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12B4A292D430DD100FFB502 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12B4A282D430DCB00FFB502 /* AccountView.swift */; };
 		C168ED842C477BF5000695D7 /* DealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED832C477BF5000695D7 /* DealView.swift */; };
 		C168ED862C477C83000695D7 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED852C477C83000695D7 /* MessagesView.swift */; };
 		C168ED882C478503000695D7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168ED872C478503000695D7 /* ChatView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C12B4A282D430DCB00FFB502 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		C168ED832C477BF5000695D7 /* DealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealView.swift; sourceTree = "<group>"; };
 		C168ED852C477C83000695D7 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C168ED872C478503000695D7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		C1B33D5E2C4745FE0082BE72 /* Molu */ = {
 			isa = PBXGroup;
 			children = (
+				C12B4A282D430DCB00FFB502 /* AccountView.swift */,
 				C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */,
 				C1B33D612C4745FE0082BE72 /* ContentView.swift */,
 				C168ED852C477C83000695D7 /* MessagesView.swift */,
@@ -161,6 +164,7 @@
 				C1B33D622C4745FE0082BE72 /* ContentView.swift in Sources */,
 				C168ED8E2C49921A000695D7 /* ImagePickerView.swift in Sources */,
 				C168ED882C478503000695D7 /* ChatView.swift in Sources */,
+				C12B4A292D430DD100FFB502 /* AccountView.swift in Sources */,
 				C168ED8A2C4869C4000695D7 /* OverView.swift in Sources */,
 				C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */,
 			);

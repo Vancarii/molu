@@ -36,7 +36,7 @@ struct OverView: View {
     
     var body: some View {
         
-//        ZStack {
+//        NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     // Header
@@ -50,13 +50,17 @@ struct OverView: View {
                                 .foregroundColor(.gray)
                         }
                         Spacer()
-                        Button(action: {
-                            // Action for account information
-                        }) {
-                            Image(systemName: "person.circle.fill")
-                                .font(.title)
-                                .foregroundColor(.gray)
-                                .padding()
+                        NavigationLink(destination: AccountView()){
+//                            Button(action: {
+//                                // Action for account information
+//                                // go to the account page
+//                                
+//                            }) {
+                                Image(systemName: "person.circle.fill")
+                                    .font(.title)
+                                    .foregroundColor(.gray)
+                                    .padding()
+//                            }
                         }
                     }
                     .padding()
@@ -180,7 +184,7 @@ struct OverView: View {
                     //                    .padding(.horizontal)
                     //                    .padding(.top, 8)
                     
-                    // Market Section
+                    // Transactions Section
                     VStack(alignment: .leading) {
                         HStack {
                             Text("Transactions")
@@ -192,7 +196,7 @@ struct OverView: View {
                         }
                         .padding(.horizontal)
                         
-                        // Market List Placeholder
+                       
                         VStack {
                             HStack {
                                 Text("Paid")
