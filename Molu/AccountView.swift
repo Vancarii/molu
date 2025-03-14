@@ -157,6 +157,9 @@ struct AccountView: View {
 }
 
 struct SettingsView: View {
+    
+    @ObservedObject var authViewModel = AuthViewModel.shared
+    
     var body: some View {
         NavigationView {
             List {
@@ -177,6 +180,7 @@ struct SettingsView: View {
                 Section {
                     Button("Log Out") {
                         // Action to log out
+                        authViewModel.signOut()
                     }
                     .foregroundColor(.red)
                 }

@@ -10,8 +10,12 @@
 		C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */; };
 		C1B33D642C4745FE0082BE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B33D632C4745FE0082BE72 /* Assets.xcassets */; };
 		C1B33D672C4745FE0082BE72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B33D662C4745FE0082BE72 /* Preview Assets.xcassets */; };
-		C1B468602D82D10700D056D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4685E2D82D10700D056D1 /* LoginView.swift */; };
-		C1B468612D82D10700D056D1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4685F2D82D10700D056D1 /* SignUpView.swift */; };
+		C1DAE9862D83B3A200832311 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DAE9852D83B3A200832311 /* WelcomeScreenView.swift */; };
+		C1DAE9882D83B46100832311 /* OPTIDanley-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C1DAE9872D83B46100832311 /* OPTIDanley-Medium.otf */; };
+		C1DAE98F2D83BFD800832311 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DAE98E2D83BFD800832311 /* SignInView.swift */; };
+		C1DAE9912D83C47200832311 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DAE9902D83C47200832311 /* CreateAccountView.swift */; };
+		C1DAE9932D83C75000832311 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DAE9922D83C75000832311 /* ForgotPasswordView.swift */; };
+		C1DAE9952D83C7E800832311 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DAE9942D83C7E800832311 /* ResetPasswordView.swift */; };
 		C1F8B4612D82C52100103836 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1F8B4602D82C52100103836 /* GoogleService-Info.plist */; };
 		C1F8B4642D82C70B00103836 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C1F8B4632D82C70B00103836 /* FirebaseAnalytics */; };
 		C1F8B4682D82CB6800103836 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C1F8B4672D82CB6800103836 /* FirebaseAnalytics */; };
@@ -39,8 +43,13 @@
 		C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoluApp.swift; sourceTree = "<group>"; };
 		C1B33D632C4745FE0082BE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1B33D662C4745FE0082BE72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C1B4685E2D82D10700D056D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C1B4685F2D82D10700D056D1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C1DAE9852D83B3A200832311 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		C1DAE9872D83B46100832311 /* OPTIDanley-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OPTIDanley-Medium.otf"; sourceTree = "<group>"; };
+		C1DAE9892D83BD0C00832311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1DAE98E2D83BFD800832311 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		C1DAE9902D83C47200832311 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		C1DAE9922D83C75000832311 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		C1DAE9942D83C7E800832311 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		C1F8B4602D82C52100103836 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1F8B4972D82CF9700103836 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C1F8B49C2D82CF9700103836 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -93,6 +102,11 @@
 		C1B33D5E2C4745FE0082BE72 /* Molu */ = {
 			isa = PBXGroup;
 			children = (
+				C1DAE9942D83C7E800832311 /* ResetPasswordView.swift */,
+				C1DAE9922D83C75000832311 /* ForgotPasswordView.swift */,
+				C1DAE9902D83C47200832311 /* CreateAccountView.swift */,
+				C1DAE98E2D83BFD800832311 /* SignInView.swift */,
+				C1DAE9852D83B3A200832311 /* WelcomeScreenView.swift */,
 				C1F8B49C2D82CF9700103836 /* AccountView.swift */,
 				C1F8B49D2D82CF9700103836 /* ChatView.swift */,
 				C1F8B49E2D82CF9700103836 /* ContentView.swift */,
@@ -102,12 +116,12 @@
 				C1F8B4A22D82CF9700103836 /* NewDealView.swift */,
 				C1F8B4A32D82CF9700103836 /* OverView.swift */,
 				C1F8B4972D82CF9700103836 /* AuthViewModel.swift */,
-				C1B4685E2D82D10700D056D1 /* LoginView.swift */,
-				C1B4685F2D82D10700D056D1 /* SignUpView.swift */,
 				C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */,
 				C1B33D632C4745FE0082BE72 /* Assets.xcassets */,
+				C1DAE9892D83BD0C00832311 /* Info.plist */,
 				C1B33D652C4745FE0082BE72 /* Preview Content */,
 				C1F8B4602D82C52100103836 /* GoogleService-Info.plist */,
+				C1DAE9872D83B46100832311 /* OPTIDanley-Medium.otf */,
 			);
 			path = Molu;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 				C1B33D672C4745FE0082BE72 /* Preview Assets.xcassets in Resources */,
 				C1B33D642C4745FE0082BE72 /* Assets.xcassets in Resources */,
 				C1F8B4612D82C52100103836 /* GoogleService-Info.plist in Resources */,
+				C1DAE9882D83B46100832311 /* OPTIDanley-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,17 +210,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F8B4982D82CF9700103836 /* AuthViewModel.swift in Sources */,
+				C1DAE9932D83C75000832311 /* ForgotPasswordView.swift in Sources */,
 				C1F8B4A62D82CF9700103836 /* AccountView.swift in Sources */,
 				C1F8B4A72D82CF9700103836 /* ChatView.swift in Sources */,
+				C1DAE98F2D83BFD800832311 /* SignInView.swift in Sources */,
 				C1F8B4A82D82CF9700103836 /* ContentView.swift in Sources */,
+				C1DAE9912D83C47200832311 /* CreateAccountView.swift in Sources */,
 				C1F8B4A92D82CF9700103836 /* DealView.swift in Sources */,
+				C1DAE9862D83B3A200832311 /* WelcomeScreenView.swift in Sources */,
+				C1DAE9952D83C7E800832311 /* ResetPasswordView.swift in Sources */,
 				C1F8B4AA2D82CF9700103836 /* ImagePickerView.swift in Sources */,
 				C1F8B4AB2D82CF9700103836 /* MessagesView.swift in Sources */,
 				C1F8B4AC2D82CF9700103836 /* NewDealView.swift in Sources */,
 				C1F8B4AD2D82CF9700103836 /* OverView.swift in Sources */,
 				C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */,
-				C1B468602D82D10700D056D1 /* LoginView.swift in Sources */,
-				C1B468612D82D10700D056D1 /* SignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +357,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Molu/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Molu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -367,8 +387,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Molu/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Molu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
