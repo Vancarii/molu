@@ -50,7 +50,7 @@ struct WelcomeScreenView: View {
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.5))
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color(red: 0.9, green: 0.95, blue: 0.98))
+                            .background(Color(hue: 0.5, saturation: 0.081, brightness: 0.921))
                             .cornerRadius(8)
                     }
                     .padding(.horizontal, 40)

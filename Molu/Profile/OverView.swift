@@ -43,10 +43,10 @@ struct OverView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("User Name")
-                                .font(.title)
+                                .font(Font.custom("OPTIDanley-Medium", size: 32))
                                 .fontWeight(.bold)
                             Text("@username")
-                                .font(.subheadline)
+                                .font(Font.custom("OPTIDanley-Medium", size: 16))
                                 .foregroundColor(.gray)
                         }
                         Spacer()
@@ -66,7 +66,8 @@ struct OverView: View {
                     .padding()
                     
                     Text("Your current deals")
-                        .font(.headline).padding(.horizontal)
+                        .font(Font.custom("OPTIDanley-Medium", size: 16))
+                        .padding(.horizontal)
                     
                     // Cards
                     
@@ -76,21 +77,22 @@ struct OverView: View {
                                 NavigationLink(destination: DealView(deal: deal)){
                                     VStack(alignment: .leading) {
                                         Text("You owe")
-                                            .font(.headline)
+                                            .font(Font.custom("OPTIDanley-Medium", size: 16))
                                             .foregroundColor(.gray)
                                         Text(deal.username)
-                                            .font(.headline)
+                                            .font(Font.custom("OPTIDanley-Medium", size: 16))
                                             .foregroundColor(.gray)
                                         Text(deal.remaining)
-                                            .font(.largeTitle)
+                                            .font(Font.custom("OPTIDanley-Medium", size: 32))
                                             .fontWeight(.bold)
                                             .padding([.top, .bottom, .trailing], 2.0)
                                             .foregroundColor(.black)
                                         Text("\(deal.paid) / \(deal.total)")
-                                            .font(.subheadline)
+                                            .font(Font.custom("OPTIDanley-Medium", size: 16))
                                             .foregroundColor(.red)
                                         HStack{
                                             Label("Details", systemImage: "arrow.right.circle").foregroundColor(.gray)
+                                                .font(Font.custom("OPTIDanley-Medium", size: 16))
                                         }
                                         .environment(\.layoutDirection, .rightToLeft)
                                         .padding(.all, 5.0)
@@ -124,7 +126,8 @@ struct OverView: View {
                                 Image(systemName: "plus.app.fill")
                                     .font(.title)
                                 Text("New Deal")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
+                                    .padding(.vertical, 2)
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -146,7 +149,8 @@ struct OverView: View {
                                 Image(systemName: "arrow.down.circle.fill")
                                     .font(.title)
                                 Text("Withdraw")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
+                                    .padding(.vertical, 2)
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -161,7 +165,8 @@ struct OverView: View {
                                 Image(systemName: "arrow.up.circle.fill")
                                     .font(.title)
                                 Text("Deposit")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
+                                    .padding(.vertical, 2)
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -188,10 +193,10 @@ struct OverView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Text("Transactions")
-                                .font(.headline)
+                                .font(Font.custom("OPTIDanley-Medium", size: 16))
                             Spacer()
                             Text("Sort by: Recent")
-                                .font(.subheadline)
+                                .font(Font.custom("OPTIDanley-Medium", size: 16))
                                 .foregroundColor(.gray)
                         }
                         .padding(.horizontal)
@@ -200,10 +205,10 @@ struct OverView: View {
                         VStack {
                             HStack {
                                 Text("Paid")
-                                    .font(.headline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                 Spacer()
                                 Text("$185.00")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                     .foregroundColor(.red)
                             }
                             .padding(.horizontal)
@@ -213,10 +218,10 @@ struct OverView: View {
                             
                             HStack {
                                 Text("Received")
-                                    .font(.headline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                 Spacer()
                                 Text("$200.00")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                     .foregroundColor(.green)
                             }
                             .padding(.horizontal)
@@ -226,10 +231,10 @@ struct OverView: View {
                             
                             HStack {
                                 Text("Received")
-                                    .font(.headline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                 Spacer()
                                 Text("$150.00")
-                                    .font(.subheadline)
+                                    .font(Font.custom("OPTIDanley-Medium", size: 16))
                                     .foregroundColor(.green)
                             }
                             .padding(.horizontal)
@@ -289,10 +294,10 @@ struct NewDealView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("Create a deal")
-                        .font(.title2)
+                        .font(Font.custom("OPTIDanley-Medium", size: 26))
                         .fontWeight(.bold)
                     Text("Add details to your listing for the buyer to verify")
-                        .font(.caption)
+                        .font(Font.custom("OPTIDanley-Medium", size: 14))
                         .foregroundColor(.gray)
                 }
                 

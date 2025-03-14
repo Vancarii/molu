@@ -39,13 +39,16 @@ struct MessagesView: View {
         VStack{
             HStack {
                 Text("Messages")
+                    .font(Font.custom("OPTIDanley-Medium", size: 16))
             }
             
             Divider()
             
             Picker(selection: $selectedPickerIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                Text("Ongoing").tag(1)
-                Text("Archived").tag(2)
+                Text("Ongoing")
+                    .tag(1)
+                Text("Archived")
+                    .tag(2)
             }.pickerStyle(.segmented)
                 .padding()
             

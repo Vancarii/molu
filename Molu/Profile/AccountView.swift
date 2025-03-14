@@ -43,11 +43,11 @@ struct AccountView: View {
                 )
             
             Text(username)
-                .font(.title)
+                .font(Font.custom("OPTIDanley-Medium", size: 32))
                 .fontWeight(.bold)
             
             Text(email)
-                .font(.subheadline)
+                .font(Font.custom("OPTIDanley-Medium", size: 16))
                 .foregroundColor(.secondary)
         }
     }
@@ -55,12 +55,12 @@ struct AccountView: View {
     private var financialOverview: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Financial Overview")
-                .font(.headline)
+                .font(Font.custom("OPTIDanley-Medium", size: 16))
             
             HStack {
                 VStack(alignment: .leading) {
                     Text("Total Earned")
-                        .font(.subheadline)
+                        .font(Font.custom("OPTIDanley-Medium", size: 16))
                         .foregroundColor(.secondary)
                     Text("$\(totalEarned, specifier: "%.2f")")
                         .font(.title2)
@@ -69,7 +69,7 @@ struct AccountView: View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text("Ongoing Deals")
-                        .font(.subheadline)
+                        .font(Font.custom("OPTIDanley-Medium", size: 14))
                         .foregroundColor(.secondary)
                     Text("\(ongoingDeals)")
                         .font(.title2)
@@ -84,7 +84,7 @@ struct AccountView: View {
     private var dealsSummary: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Recent Deals")
-                .font(.headline)
+                .font(Font.custom("OPTIDanley-Medium", size: 16))
             
             ForEach(1...3, id: \.self) { index in
                 HStack {
@@ -100,7 +100,7 @@ struct AccountView: View {
                 // Action to view all deals
             }) {
                 Text("View All Deals")
-                    .font(.subheadline)
+                    .font(Font.custom("OPTIDanley-Medium", size: 14))
                     .foregroundColor(.blue)
             }
         }
@@ -111,7 +111,7 @@ struct AccountView: View {
     private var accountSettings: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Account Settings")
-                .font(.headline)
+                .font(Font.custom("OPTIDanley-Medium", size: 16))
             
             Button(action: {
                 // Action to edit profile
