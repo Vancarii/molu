@@ -98,29 +98,25 @@ struct OverView: View {
                                         .padding(.all, 5.0)
                                     }
                                     .padding()
-                                    .background(Color(UIColor.systemGray6))
+                                    .background(Color.white)
                                     .cornerRadius(10)
                                     .padding([.leading, .trailing], 5.0)
                                     .padding([.bottom], 10.0)
                                     .shadow(radius: 5,
-                                            x: 5,
-                                            y: 5
+                                            x: 3,
+                                            y: 3
                                     )
                                 }
                             }
-                            
-                            
                         }
-                        .padding(.horizontal)
+                        .padding([.leading, .trailing])
+                        .padding(.top, 5 )
                     }
                     
                     // Buttons
                     HStack {
-                        
                         Button(action: {
-                            
                             showNewDealSheet.toggle()
-                            
                         }) {
                             VStack {
                                 Image(systemName: "plus.app.fill")
@@ -132,16 +128,13 @@ struct OverView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color(UIColor.systemGray6))
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                         }.sheet(isPresented: $showNewDealSheet) {
 //                            print("Sheet dismissed!")
                         } content: {
                             NewDealView(showNewDealPage: $showNewDealSheet).interactiveDismissDisabled()
                         }
 
-                        
-                        
-                        
                         Button(action: {
                             // Withdraw action
                         }) {
@@ -155,7 +148,7 @@ struct OverView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color(UIColor.systemGray6))
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                         }
                         
                         Button(action: {
@@ -171,7 +164,7 @@ struct OverView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color(UIColor.systemGray6))
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                         }
                     }
                     .padding(.horizontal)
@@ -248,7 +241,7 @@ struct OverView: View {
                 }
                 .padding(.top)
             }
-            .background(Color(UIColor.systemGray5))
+
             
             
 //            if showNewDealPage {
