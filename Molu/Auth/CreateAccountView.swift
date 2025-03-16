@@ -7,12 +7,15 @@
 
 
 import SwiftUI
+import FirebaseAuth
 
 struct CreateAccountView: View {
-    @State private var username: String = ""
+    @State private var phone: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
+    @State private var errorMessage: String?
+    @State private var showSetUsernameView = false
     
     @ObservedObject var authViewModel = AuthViewModel.shared
     
@@ -27,9 +30,9 @@ struct CreateAccountView: View {
                     .padding(.bottom, 20)
                 
                 HStack {
-                    Image(systemName: "person")
+                    Image(systemName: "phone")
                         .foregroundColor(.gray)
-                    TextField("Username", text: $username)
+                    TextField("Phone Number", text: $phone)
                 }
                 .padding()
                 .background(Color.white)
@@ -68,7 +71,10 @@ struct CreateAccountView: View {
                 
                 Button(action: {
                     // Action for create account
-                    authViewModel.signUp(email: email, password: password)
+//                    authViewModel.signUp(email: email, password: password)
+                    
+                    //instead of directly signing up, we check if the password and confirm password match first, as well as check email is not in use already, and if it all passes then we can go set their username
+                    validateAndProceed()
                 }) {
                     Text("Create Account")
                         .font(Font.custom("OPTIDanley-Medium", size: 16))
@@ -100,7 +106,39 @@ struct CreateAccountView: View {
                
             }
         }
+        .navigationDestination(isPresented: $showSetUsernameView) {
+            SetUsernameView(email: email, password: password)
+        }
     }
+    
+    // Function to validate and proceed to next screen if passed
+    private func validateAndProceed() {
+            errorMessage = nil
+
+            // Check if passwords match
+            guard password == confirmPassword else {
+                errorMessage = "Passwords do not match"
+                return
+            }
+
+            // Check if password length is sufficient
+            guard password.count >= 6 else {
+                errorMessage = "Password must be at least 6 characters long"
+                return
+            }
+
+            // Check if email is already in use
+            authViewModel.checkEmail(email: email) { isAvailable, error in
+                if let error = error {
+                    self.errorMessage = error
+                    return
+                }
+
+                if isAvailable {
+                    self.showSetUsernameView = true
+                }
+            }
+        }
 }
 
 struct CreateAccountView_Previews: PreviewProvider {

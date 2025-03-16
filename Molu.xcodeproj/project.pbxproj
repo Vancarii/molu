@@ -10,6 +10,7 @@
 		C17DAA3D2D856CC5004FCA91 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C17DAA3C2D856CC5004FCA91 /* FirebaseFirestore */; };
 		C17DAA3F2D856CC5004FCA91 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = C17DAA3E2D856CC5004FCA91 /* FirebaseFirestoreCombine-Community */; };
 		C17DAA412D856CC5004FCA91 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C17DAA402D856CC5004FCA91 /* FirebaseInAppMessaging-Beta */; };
+		C17DAA432D863299004FCA91 /* SetUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17DAA422D863293004FCA91 /* SetUsernameView.swift */; };
 		C1B33D602C4745FE0082BE72 /* MoluApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */; };
 		C1B33D642C4745FE0082BE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B33D632C4745FE0082BE72 /* Assets.xcassets */; };
 		C1B33D672C4745FE0082BE72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B33D662C4745FE0082BE72 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C17DAA422D863293004FCA91 /* SetUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUsernameView.swift; sourceTree = "<group>"; };
 		C1B33D5C2C4745FE0082BE72 /* Molu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B33D5F2C4745FE0082BE72 /* MoluApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoluApp.swift; sourceTree = "<group>"; };
 		C1B33D632C4745FE0082BE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		C1FEB1892D84002000E653D7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C17DAA422D863293004FCA91 /* SetUsernameView.swift */,
 				C1DAE9942D83C7E800832311 /* ResetPasswordView.swift */,
 				C1DAE9922D83C75000832311 /* ForgotPasswordView.swift */,
 				C1DAE9902D83C47200832311 /* CreateAccountView.swift */,
@@ -278,6 +281,7 @@
 				C1DAE98F2D83BFD800832311 /* SignInView.swift in Sources */,
 				C1F8B4A82D82CF9700103836 /* ContentView.swift in Sources */,
 				C1DAE9912D83C47200832311 /* CreateAccountView.swift in Sources */,
+				C17DAA432D863299004FCA91 /* SetUsernameView.swift in Sources */,
 				C1F8B4A92D82CF9700103836 /* DealView.swift in Sources */,
 				C1DAE9862D83B3A200832311 /* WelcomeScreenView.swift in Sources */,
 				C1DAE9952D83C7E800832311 /* ResetPasswordView.swift in Sources */,
