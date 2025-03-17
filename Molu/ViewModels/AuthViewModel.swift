@@ -39,21 +39,20 @@ class AuthViewModel: ObservableObject {
     // Check if the email is already in use, by querying the Firestore database for the email
     // If the email is already in use, return an error message
     // If the email is not in use, return nil
-    // Completion handler returns a Bool indicating success or failure, and an optional error message
     func checkEmail(email: String, completion: @escaping (Bool, String?) -> Void) {
-        let db = Firestore.firestore()
-        let usersRef = db.collection("users")
+       let db = Firestore.firestore()
+       let usersRef = db.collection("users")
 
-        usersRef.whereField("email", isEqualTo: email).limit(to: 1).getDocuments { querySnapshot, error in
-            if let error = error {
-                self.authError = error.localizedDescription
-            } else if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                self.authError = "Email is already in use."
-            } else {
-                completion(true, nil)
-            }
-        }
-    }
+       usersRef.whereField("email", isEqualTo: email).limit(to: 1).getDocuments { querySnapshot, error in
+           if let error = error {
+               completion(false, error.localizedDescription)
+           } else if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+               completion(false, "Email is already in use.")
+           } else {
+               completion(true, nil)
+           }
+       }
+   }
     
     // MARK: - Check Username
     func checkUsername(username: String, completion: @escaping (Bool, String?) -> Void) {
@@ -62,29 +61,32 @@ class AuthViewModel: ObservableObject {
 
         usersRef.whereField("username", isEqualTo: username).limit(to: 1).getDocuments { querySnapshot, error in
             if let error = error {
-                self.authError = error.localizedDescription
+                completion(false, error.localizedDescription)
             } else if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                self.authError = "Username is already in use."
+                completion(false, "Username is already in use.")
             } else {
                 completion(true, nil)
             }
         }
     }
     
+    
     // MARK: - Sign Up
     // Sign up with email, password, and username
     // This is called after the email is checked, and called by the setUsername view after username is entered
-    func SignUp(email: String, password: String, username: String, completion: @escaping (String?) -> Void) {
-        
+    func SignUp(email: String, password: String, username: String, fullname: String, phoneNumber: String) {
         checkUsername(username: username) { isAvailable, error in
             if let error = error {
                 self.authError = error
+                return
             }
             
-            if !isAvailable {
+            guard isAvailable else {
                 self.authError = "Username is already in use."
+                return
             }
             
+            // Creating user for Firebase Authentication
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error {
                     self.authError = error.localizedDescription
@@ -92,28 +94,30 @@ class AuthViewModel: ObservableObject {
                 }
                 
                 guard let user = result?.user else {
-                    completion("Failed to create user")
                     return
                 }
                 
+                // Creating user for Firestore Database
                 let db = Firestore.firestore()
                 let userRef = db.collection("users").document(user.uid)
                 
                 userRef.setData([
                     "uid": user.uid,
                     "username": username,
-                    "email": email
+                    "email": email,
+                    "fullname": fullname,
+                    "phoneNumber": phoneNumber
                 ]) { error in
                     if let error = error {
                         self.authError = error.localizedDescription
                     } else {
-                        completion(nil)
+                        self.authError = nil
                     }
                 }
             }
         }
-        
     }
+
 
 //    // MARK: - Sign Up
 //    func signUp(email: String, password: String) {

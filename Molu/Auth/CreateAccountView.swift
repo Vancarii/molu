@@ -1,5 +1,5 @@
 //
-//  SignUpScreen.swift
+//  CreateAccountView.swift
 //  Molu
 //
 //  Created by Yecheng Wang on 2025-03-13.
@@ -10,12 +10,11 @@ import SwiftUI
 import FirebaseAuth
 
 struct CreateAccountView: View {
-    @State private var phone: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
     @State private var errorMessage: String?
-    @State private var showSetUsernameView = false
+    @State private var accountCreated = false
     
     @ObservedObject var authViewModel = AuthViewModel.shared
     
@@ -28,16 +27,6 @@ struct CreateAccountView: View {
                     .font(Font.custom("OPTIDanley-Medium", size: 40))
                     .foregroundColor(.black)
                     .padding(.bottom, 20)
-                
-                HStack {
-                    Image(systemName: "phone")
-                        .foregroundColor(.gray)
-                    TextField("Phone Number", text: $phone)
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(8)
-                .padding(.horizontal, 30)
                 
                 HStack {
                     Image(systemName: "envelope")
@@ -70,9 +59,6 @@ struct CreateAccountView: View {
                 .padding(.horizontal, 30)
                 
                 Button(action: {
-                    // Action for create account
-//                    authViewModel.signUp(email: email, password: password)
-                    
                     //instead of directly signing up, we check if the password and confirm password match first, as well as check email is not in use already, and if it all passes then we can go set their username
                     validateAndProceed()
                 }) {
@@ -106,8 +92,8 @@ struct CreateAccountView: View {
                
             }
         }
-        .navigationDestination(isPresented: $showSetUsernameView) {
-            SetUsernameView(email: email, password: password)
+        .navigationDestination(isPresented: $accountCreated) {
+            AccountSetup(email: email, password: password)
         }
     }
     
@@ -135,7 +121,7 @@ struct CreateAccountView: View {
                 }
 
                 if isAvailable {
-                    self.showSetUsernameView = true
+                    self.accountCreated = true
                 }
             }
         }
